@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.6.1
+FROM rocker/r-ver:3.6.2
 
 ARG RSTUDIO_VERSION
 ENV RSTUDIO_VERSION=${RSTUDIO_VERSION:-1.2.5019}
@@ -66,8 +66,9 @@ RUN apt-get update \
 	&& addgroup rstudio staff \
   ## Prevent rstudio from deciding to use /usr/bin/R if a user apt-get installs a package
   &&  echo 'rsession-which-r=/usr/local/bin/R' >> /etc/rstudio/rserver.conf \
-  &&  echo 'www-root-path=rstudio' > /etc/rstudio/rserver.conf \
-  &&  echo 'www-port=5560' > /etc/rstudio/rserver.conf \
+  &&  echo 'www-root-path=rstudio' >> /etc/rstudio/rserver.conf \
+  &&  echo 'www-port=5560' >> /etc/rstudio/rserver.conf \
+  &&  echo 'www-root-path=data6' >> /etc/rstudio/rserver.conf \
   ## use more robust file locking to avoid errors when using shared volumes:
   && echo 'lock-type=advisory' >> /etc/rstudio/file-locks \
   ## configure git not to request password each time
