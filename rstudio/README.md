@@ -2,7 +2,7 @@
 
 ## Quickstart
 
-    docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
+    docker run --rm -p 5560:5560 -e PASSWORD=yourpasswordhere rstudiop
 
 Visit `localhost:8787` in your browser and log in with username `rstudio` and the password you set. **NB: Setting a password is now REQUIRED.**  Container will error otherwise.
 
